@@ -36,7 +36,7 @@ app.use('/auth', authRouter);
 app.use('/blogs', auth.autherize, blogRouter);
 
 app.use('*', (req,res)=>{
-    if(req,session.user){
+    if(req.session.user){
       res.redirect('/blogs')
     }else{
         res.redirect('/auth/login')
